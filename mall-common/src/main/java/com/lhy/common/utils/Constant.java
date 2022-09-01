@@ -8,9 +8,9 @@
 
 package com.lhy.common.utils;
 
-import io.renren.common.validator.group.AliyunGroup;
-import io.renren.common.validator.group.QcloudGroup;
-import io.renren.common.validator.group.QiniuGroup;
+import com.lhy.common.utils.group.AliyunGroup;
+import com.lhy.common.utils.group.QcloudGroup;
+import com.lhy.common.utils.group.QiniuGroup;
 
 import java.util.Optional;
 import java.util.stream.Stream;

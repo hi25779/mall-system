@@ -1,20 +1,14 @@
 package com.lhy.mall.product.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
-import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.lhy.mall.product.entity.SpuInfoEntity;
-import com.lhy.mall.product.service.SpuInfoService;
 import com.lhy.common.utils.PageUtils;
 import com.lhy.common.utils.R;
+import com.lhy.mall.product.entity.SpuInfoEntity;
+import com.lhy.mall.product.service.SpuInfoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Arrays;
+import java.util.Map;
 
 
 
@@ -23,7 +17,7 @@ import com.lhy.common.utils.R;
  *
  * @author lhy
  * @email lihaoyuan01@gmail.com
- * @date 2022-08-31 21:58:36
+ * @date 2022-09-01 22:19:15
  */
 @RestController
 @RequestMapping("product/spuinfo")
@@ -35,7 +29,7 @@ public class SpuInfoController {
      * 列表
      */
     @RequestMapping("/list")
-    @RequiresPermissions("product:spuinfo:list")
+    //@RequiresPermissions("product:spuinfo:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = spuInfoService.queryPage(params);
 
@@ -47,7 +41,7 @@ public class SpuInfoController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    @RequiresPermissions("product:spuinfo:info")
+    //@RequiresPermissions("product:spuinfo:info")
     public R info(@PathVariable("id") Long id){
 		SpuInfoEntity spuInfo = spuInfoService.getById(id);
 
@@ -58,7 +52,7 @@ public class SpuInfoController {
      * 保存
      */
     @RequestMapping("/save")
-    @RequiresPermissions("product:spuinfo:save")
+    //@RequiresPermissions("product:spuinfo:save")
     public R save(@RequestBody SpuInfoEntity spuInfo){
 		spuInfoService.save(spuInfo);
 
@@ -69,7 +63,7 @@ public class SpuInfoController {
      * 修改
      */
     @RequestMapping("/update")
-    @RequiresPermissions("product:spuinfo:update")
+    //@RequiresPermissions("product:spuinfo:update")
     public R update(@RequestBody SpuInfoEntity spuInfo){
 		spuInfoService.updateById(spuInfo);
 
@@ -80,7 +74,7 @@ public class SpuInfoController {
      * 删除
      */
     @RequestMapping("/delete")
-    @RequiresPermissions("product:spuinfo:delete")
+    //@RequiresPermissions("product:spuinfo:delete")
     public R delete(@RequestBody Long[] ids){
 		spuInfoService.removeByIds(Arrays.asList(ids));
 
